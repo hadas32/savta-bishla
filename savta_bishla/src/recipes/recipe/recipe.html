@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>מתכון</title>
+  <link rel="icon" type="image/png" href="/images/לוגו.png">
+  <link rel="stylesheet" href="recipe.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script type="module" src="recipe.js" defer></script>
+  <script type="module" src="../../menu.js" defer></script>
+  <script type="module" src="../../user/login.js" defer></script>
+  <script type="module" src="../../user/register.js" defer></script>
+  <link rel="stylesheet" href="../../menu.css">
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <img class="header-image" src="/images/header.png" alt="ניווט">
+  </nav>
+  <nav class="blue-bar">
+    <div class="menu-wrap">
+
+      <div class="top-left-utils">
+        <div id="user-status-container" class="user-status-container">
+        </div>
+      </div>
+
+      <ul class="right">
+        <li class="toAdmin"><a href="/src/recipes/formRecipe/addRecipe/addRecipe.html">הוספת מתכון</a></li>
+        <li><a href="/src/tips/tips.html">טיפים</a></li>
+        <li><a href="/src/recipes/allRecipes/allRecipes.html">מתכונים</a></li>
+      </ul>
+
+      <ul class="left">
+        <li><a href="/src/user/favoritesRecipes/favorites.html" class="favorites-button">מחברת מתכונים</a></li>
+
+        <li><a href="src/#about">אודות</a></li>
+        <li><a href="/src" class="favorites-button">ראשי</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="modal">
+    <button class="close-modal" aria-label="סגור">
+      ✕
+    </button>
+    <div class="form-container">
+
+      <div class="connected">
+        <button class="activ openLogin">התחברות</button>
+        <button class="disActive openRegister">הרשמה</button>
+      </div>
+
+      <form class="toLogin">
+        <input id="email" type="email" placeholder="אימייל" required>
+        <input id="password" type="password" placeholder="סיסמה" required>
+        <button class="btnLogin" type="submit">התחברות</button>
+        <div class="errorMsgLogin"></div>
+      </form>
+
+      <form class="toRegister">
+        <input id="username" type="text" placeholder="שם מלא" required>
+        <input id="email" type="email" placeholder="אימייל" required>
+        <input id="password" type="password" placeholder="סיסמה" required>
+        <input id="password2" type="password" placeholder="אימות סיסמה" required>
+        <button class="btnRegister" type="submit">הרשמה</button>
+        <div class="errorMsgRegister"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="recipe-decor">
+    <i class="fas fa-utensils"></i>
+    <i class="fas fa-leaf"></i>
+    <i class="fas fa-carrot"></i>
+    <i class="fas fa-bread-slice"></i>
+  </div>
+
+  <div class="header"></div>
+  <div class="recipe-image-container">
+    <img id="recipe-image" alt="תמונה של המתכון" />
+    <div class="title-description">
+      <h1 id="recipe-title"></h1>
+      <p id="recipe-description"></p>
+    </div>
+  </div>
+  <div class="recipe-info">
+    <div class="top-info">
+      <div class="info-item" id="prep-time">
+        <div class="label-row">
+          <img src="/public/images/איקונים לסבתא/דקות.png" alt="זמן הכנה" class="icon">
+          <div class="label-column">
+            <span class="label">זמן הכנה</span>
+            <span class="sub-text"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-item" id="difficulty">
+        <div class="label-row">
+          <img src="/public/images/איקונים לסבתא/קל.png" alt="רמת קושי" class="icon">
+          <div class="label-column">
+            <span class="label">רמת קושי</span>
+            <div class="sub-text" id="difficulty-value"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <div class="bottom-icons">
+      <span title="הדפסה" class="action-icon" id="print-recipe">
+        <i class="fas fa-print"></i>
+      </span>
+      <span title="שתף מתכון" class="action-icon" id="share-recipe">
+        <i class="fas fa-share-alt"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="recipe-container">
+    <div class="recipe-content">
+      <div class="recipe-sections">
+        <div class="recipe-section ingredients">
+          <h3><i class="fas fa-carrot"></i> מרכיבים</h3>
+          <ul id="recipe-ingredients">
+          </ul>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="recipe-section instructions">
+          <h3><i class="fas fa-utensils"></i> הוראות הכנה</h3>
+          <ol id="recipe-instructions">
+          </ol>
+        </div>
+      </div>
+
+      <!-- <footer class="recipe-footer">
+                <p><strong>קטגוריות:</strong> <span id="recipe-categories"></span></p>
+            </footer> -->
+
+    </div>
+  </div>
+  <div class="copyright-bar">
+    <div class="content-container">
+      © 2025 סבתא בישלה. כל הזכויות שמורות.
+      <a href="#">מדיניות פרטיות</a> |
+      <a href="#">תנאי שימוש</a>
+    </div>
+  </div>
+</body>
+
+</html>

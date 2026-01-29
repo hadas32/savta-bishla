@@ -1,0 +1,284 @@
+/* התפריט */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    display: none;
+}
+
+body,
+html {
+    padding: 0;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(to bottom, #fdf6e3, #f6fffc);
+    background-attachment: fixed;
+    background-size: cover;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+/* התמונה של התפריט */
+.navbar img {
+    position: fixed;
+    display: block;
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+}
+
+.blue-bar {
+    position: fixed;
+    top: 5%;
+    width: 100%;
+    z-index: 90;
+}
+
+/* התפריט הרגיל - ללא ההתחברות */
+.menu-wrap {
+    direction: ltr;
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.menu-wrap ul {
+    width: 50%; /* כל צד תופס חצי */
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-wrap ul.left {
+    justify-content: center; /* ממקם את הפריטים במרכז החצי השמאלי */
+}
+
+.menu-wrap ul.right {
+    justify-content: center; /* ממקם את הפריטים במרכז החצי הימני */
+}
+
+.menu-wrap li {
+    list-style: none;
+}
+
+.menu-wrap a {
+    display: block;
+    color: #08016b;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.menu-wrap a:hover {
+    color: #9E268A;
+}
+
+/* --- אלמנט ההתחברות - מחוץ לתפריט הרגיל --- */
+.top-left-utils {
+    position: absolute; /* מיקום מוחלט */
+    left: 1.8rem; /* מרווח מהקצה השמאלי */
+    top: 50%; /* מרכוז אנכי */
+    transform: translateY(-50%); /* מרכוז אנכי מדויק */
+    display: flex;
+    gap: 20px; 
+    align-items: center;
+    direction: rtl; /* לתמיכה בכתיבה מימין לשמאל */
+    z-index: 95; /* מעל התפריט הרגיל אבל מתחת לכל הדף */
+}
+
+/* סטטוס משתמש */
+.user-status-container {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #08016b; 
+    white-space: nowrap; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-status-container a {
+    color: #08016b;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.user-status-container a:hover {
+    color: #9E268A;
+}
+
+.user-status-container .separator {
+    margin: 0 2.5px;
+    color: #9E268A; 
+    font-weight: normal;
+}
+
+.logged-in-user-name {
+    color: #9E268A; 
+}
+
+/* רספונסיבי למסכים קטנים */
+@media (max-width: 768px) {
+    .menu-wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-wrap ul {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .top-left-utils {
+        position: static;
+        transform: none;
+        margin: 10px 0;
+    }
+}
+
+/* --- עיצוב המודאל --- */
+.form-container {
+    background-color: #FFFDF6;
+    border-radius: 5px;
+    box-shadow: 0 6px 25px rgba(178, 0, 76, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 50%;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+form input {
+    display: block;
+    width: 85%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 1px solid #89BE48;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+    display: inline;
+    background-color: #f0f3f3c5;
+}
+
+form input:focus {
+    border-color: #b2004c;
+    box-shadow: 0 0 6px rgba(178, 0, 76, 0.2);
+}
+
+.btnRegister,
+.btnLogin {
+    background: linear-gradient(90deg, #9E268A, #78BD50, #F6CF8C);
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    width: 95%;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 30px;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #9E268A, #78BD50, #F6CF8C);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(178, 0, 76, 0.4);
+}
+
+.errorMsgRegister,
+.errorMsgLogin {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.connected {
+    display: flex;
+    width: 100%;
+    margin: 0 0 30px 0;
+    padding: 0;
+    gap: 0;
+}
+
+.connected button {
+    flex: 1;
+    margin: 0;
+    padding: 25px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.activ {
+    background-color: #FFFDF6;
+}
+
+.disActive {
+    background-color: #d2d8d8c5;
+}
+
+.toRegister {
+    display: none;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 101;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #9E248A;
+}
+
+.copyright-bar {
+    background-color: #771A69;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copyright-bar .content-container {
+    color: #f7f7f7;
+}
+
+.copyright-bar a {
+    color: #F6CF8C;
+    text-decoration: none;
+    margin: 0 15px;
+}

@@ -1,0 +1,571 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: linear-gradient(to bottom, #fdf6e3, #f6fffc);
+  background-attachment: fixed;
+  background-size: cover;
+    scroll-behavior: smooth;
+  
+}
+
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('/images/background4.png') no-repeat center bottom;
+  background-size: 100% auto;
+  
+}
+
+/* רספונסיבי למסכים קטנים */
+@media (max-width: 768px) {
+  .menu-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-wrap ul {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+.about-section {
+  position: relative; /* חשוב בשביל שהכפתור יהיה מעל התמונה */
+}
+
+.tips-image-button {
+  position: absolute;
+  bottom: 17%; /* ממקם את הכפתור בתחתית החלק */
+  left: 50%;
+  transform: translateX(-70%);
+  display: inline-block;
+  z-index: 10;
+}
+
+.tips-image-button img {
+  width: 145px; /* אפשר לשנות לפי הגודל הרצוי */
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.tips-image-button img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+
+.image-button {
+  position: absolute;
+  top: 20px; /* מרחק מהחלק העליון של הסקשן */
+  right: 20px; /* מרחק מהצד הימני */
+  display: block;
+  width: 60px; /* גודל הכפתור */
+  height: 60px;
+  z-index: 10; /* מעל התוכן */
+}
+
+.image-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+
+
+.form-container {
+  background-color: #FFFDF6;
+  border-radius: 5px;
+  box-shadow: 0 6px 25px rgba(178, 0, 76, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 50%;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+form input {
+  display: block;
+  width: 85%;
+  padding: 15px;
+  margin: 12px 0;
+  border: 1px solid #89BE48;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+  display: inline;
+  background-color: #f0f3f3c5;
+}
+
+form input:focus {
+  border-color: #b2004c;
+  box-shadow: 0 0 6px rgba(178, 0, 76, 0.2);
+}
+
+.btnRegister,
+.btnLogin {
+  background: linear-gradient(90deg, #9E268A, #78BD50, #F6CF8C);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  width: 95%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 30px;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #9E268A, #78BD50, #F6CF8C);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(178, 0, 76, 0.4);
+}
+
+.errorMsgRegister,
+.errorMsgLogin {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.connected {
+  display: flex;
+  width: 100%;
+  /* ממלא את רוחב החלונית */
+  margin: 0 0 30px 0;
+  /* אין רווח חיצוני */
+  padding: 0;
+  /* אין ריווח פנימי */
+  gap: 0;
+  /* אין רווח בין הכפתורים */
+}
+
+.connected button {
+  flex: 1;
+  /* כל כפתור תופס חצי רוחב */
+  margin: 0;
+  /* אין רווח חיצוני */
+  padding: 25px;
+  /* ריווח אנכי אם רוצים */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.activ {
+  background-color: #FFFDF6;
+}
+
+.disActive {
+  background-color: #d2d8d8c5;
+}
+
+.toRegister {
+  display: none;
+}
+
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 101;
+  /* מעל הכל */
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: #9E248A;
+}
+
+/* מבנה כללי לאזורי התוכן */
+.sections-wrapper {
+    width: 100%;
+}
+
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #9E268A; /* צבע סגול מהלוגו */
+    margin-bottom: 40px;
+    border-bottom: 3px solid #9E268A; /* קו ירוק מתחת לכותרת */
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto 40px auto;
+}
+
+/* כפתורי קריאה לפעולה (CTA) */
+.cta-button {
+    background: linear-gradient(90deg, #9E268A, #78BD50);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.cta-button:hover {
+    box-shadow: 0 6px 20px rgba(158, 38, 138, 0.4);
+    transform: translateY(-2px);
+}
+
+/* === עיצוב חדש לסקשן האודות === */
+
+
+
+/* כותרת התמונה */
+.about-section .title-image {
+  display: block;
+  margin: 0 auto 0 85%;
+  max-width: 150px;
+  height: auto;
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 900px) {
+  .about-section .content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-section .illustrations {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .about-section .text-content {
+    text-align: center;
+  }
+}
+
+/* עיצוב קטע "אודות" עם תמונת רקע */
+.about-section {
+    background: url('/images/about-background.png') no-repeat center center; /* תמונת הרקע */
+    background-size: cover; /* התאמת התמונה כך שתכסה את כל הקטע */
+    background-color: #FFFDF6; /* צבע רקע למקרה שהתמונה לא מכסה את כל הקטע */
+    color: #2a2a8f; /* טקסט כחול כהה */
+    text-align: right; /* יישור לימין */
+    padding: 100px 20px; /* ריווח פנימי */
+    position: relative; /* מאפשר מיקום אלמנטים */
+    min-height: 400px; /* גובה מינימלי לקטע */
+}
+
+/* טקסט בתוך קטע "אודות" */
+.about-section .text-content {
+    max-width: 600px; /* מגבלת רוחב לטקסט */
+    margin: 0 0 0 60%; /* הזזת הטקסט לצד ימין */
+    
+}
+.text-content p{
+  color: #2a2a8f; /* טקסט כחול כהה */
+  font-size: 1.2rem; /* גודל טקסט */
+  line-height: 2; /* מרווח בין שורות */
+
+
+}
+
+/* סקשן "הצטרפו לקהילה" */
+.join-us-section {
+    background-color: #97bb81; /* ירוק מהלוגו */
+    color: #fff;
+    height: 110px;
+}
+
+.join-us-section h2, 
+.join-us-section p {
+    color: #fff;
+}
+
+
+.contact-links {
+    margin-top: 30px;
+    font-size: 1rem;
+}
+
+.contact-links span {
+    margin-left: 10px;
+}
+
+.contact-link {
+    color: #9E268A; /* צהוב בהיר לקישור */
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: #fff;
+}
+/* סקשן "טיפים למטבח" */
+.tips-section {
+    background-color: #97bb81; /* סגול מהלוגו */
+    color: #fff; /* טקסט לבן */
+}
+
+.tips-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* כדי שירד שורה במסכים קטנים */
+}
+
+.tip-card {
+    position: relative;
+    max-width: 280px;
+    overflow: hidden;
+    text-decoration: none; /* הסרת קו תחתון מקישור */
+    display: block;
+}
+
+
+.tip-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.tip-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(158, 38, 138, 0.7); /* צבע סגול חצי שקוף */
+    color: #fff;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    opacity: 1; /* תמיד גלוי, אפשר לשנות ל-0 ולהראות רק ב-hover */
+}
+
+/* הסתרת כרטיס רביעי במסכים קטנים - רספונסיביות בסיסית */
+@media (max-width: 1200px) {
+    .tip-card {
+        width: 45%; /* 2 כרטיסים בשורה */
+    }
+}
+
+@media (max-width: 768px) {
+    .tip-card {
+        width: 90%; /* כרטיס אחד בשורה */
+    }
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+/* פוטר - תחתית האתר */
+.main-footer {
+    background-color: #333333; /* רקע כהה לפוטר */
+    color: #f7f7f7;
+    font-size: 0.95rem;
+    padding-top: 50px;
+}
+
+
+
+/* פוטר - תחתית האתר - עיצוב מחודש וקומפקטי */
+.main-footer {
+    background-color: #FFFDF6; 
+    color: #312a2a;
+    font-size: 0.95rem;
+    padding-top: 30px; /* **הקטנת הריווח העליון** */
+}
+
+.footer-content {
+    /* נשאר כמעט זהה */
+    display: flex;
+    justify-content: space-around; /* שיניתי ל-space-around לריווח שווה יותר */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 20px; /* **הקטנת הריווח התחתון** */
+    border-bottom: none; /* **הסרת הקו לפני שורת זכויות היוצרים** */
+}
+
+
+.footer-logo {
+    width: 100px; /* הגדלתי מעט את הלוגו */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* התאמה של טקסט בתוך הסקשנים */
+.tips-section h2, .tips-section p {
+    color: #fff; /* טקסט לבן */
+}
+
+.featured-recipes-section h2, .featured-recipes-section p {
+    color: #333; /* טקסט כהה */
+}
+
+/* התאמה של כפתורים */
+.tips-section .cta-button {
+  background: #9E268A; /* סגול */
+    color: #fff; /* טקסט לבן */
+}
+.tips-section .cta-button :hover{
+  background: #9E268A; /* סגול */
+}
+
+.cta-button {
+    background: #9E268A; /* סגול */
+    color: #fff; /* טקסט לבן */
+}
+
+.featured-recipes-section .cta-button:hover {
+    box-shadow: 0 6px 20px rgba(158, 38, 138, 0.4);
+    transform: translateY(-2px);
+}
+
+/* גלריית המתכונים */
+.recipes-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* ריווח בין הכרטיסים */
+  flex-wrap: wrap; /* התאמה למסכים קטנים */
+}
+
+/* כרטיסי המתכונים */
+
+/* --- רשת כרטיסים --- */
+.recipes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* --- כרטיס מתכון --- */
+.recipe-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.recipe-card p {
+  font-size: 0.95em;
+  color: #666;
+  margin: 0 15px 15px;
+  line-height: 1.5;
+}
+
+.recipe-card h3 {
+  margin: 15px 0 10px;
+  color: #8a1f5c;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.recipe-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+/* --- רספונסיביות --- */
+@media (max-width: 992px) {
+  .recipes-grid {
+    padding: 40px;
+    gap: 20px;
+  }
+  .recipe-card {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recipes-grid {
+    padding: 30px;
+  }
+  .recipe-card {
+    width: 100%;
+    max-width: 400px;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 0;
+  }
+  .recipes-grid {
+    padding: 15px;
+  }
+  .recipe-card img {
+    height: 180px;
+  }
+  .recipe-card h3 {
+    font-size: 1.1em;
+  }
+  .recipe-card p {
+    font-size: 0.9em;
+  }
+}
+
+

@@ -1,0 +1,345 @@
+body {
+  font-family: "Assistant", sans-serif;
+  background: #FAF2F0;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  direction: rtl; /* יישור לימין של כל הדף */
+  /* --- שינוי קריטי: ריווח עליון ל-fixed navbar --- */
+  padding-top: 150px; 
+}
+
+/* התאמת ריווח עליון למובייל */
+@media (max-width: 768px) {
+  body {
+      padding-top: 230px; /* תואם לגובה ה-navbar הרספונסיבי שסוכם קודם (220px + מרווח) */
+  }
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  border-bottom: 3px solid #8a1f5c;
+  display: none; /* הסתרת הדיב הריק הזה אם אינו בשימוש */
+}
+
+/* ============================================== */
+/* --- 1. תמונה וכותרת (.recipe-image-container) --- */
+/* ============================================== */
+.recipe-image-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #97bb81;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-direction: row-reverse; /* התמונה מימין */
+}
+
+.recipe-image-container img {
+  display: flex;
+  justify-content: flex-start;
+  width: 65%; /* 65% מהרוחב בדסקטופ */
+  height: auto;
+  max-width: 65%;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.title-description {
+  width: 35%; /* 35% מהרוחב בדסקטופ */
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.recipe-image-container h1 {
+  font-size: 3.3rem;
+  color: #FFFDF6;
+}
+
+#recipe-description {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #8a1f5c;
+}
+
+/* ============================================== */
+/* --- 2. מידע עליון (.recipe-info) --- */
+/* ============================================== */
+.recipe-info {
+  text-align: center;
+  margin: 20px;
+}
+
+.top-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-weight: bold;
+  flex-wrap: wrap; /* מאפשר שבירת שורה במובייל */
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.label-column {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
+}
+
+.icon {
+  height: 5em;
+  vertical-align: middle;
+}
+
+.sub-text {
+  margin-top: 5px;
+  font-size: 0.85em;
+  color: #777;
+  padding: 5px;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  width: 80%;
+  margin: 20px auto;
+  border-top: 2px dotted #2E308E;
+}
+
+.bottom-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.action-icon {
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #9e268a;
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.action-icon:hover {
+  transform: scale(1.1);
+  color: #9e268a;
+}
+.favorite-icon {
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+
+/* ============================================== */
+/* --- 3. מרכיבים והוראות (.recipe-sections) --- */
+/* ============================================== */
+.recipe-container {
+  max-width: 950px;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: 0.3s ease;
+  padding: 5.5rem 6.5rem; /* ריווח פנימי גדול בדסקטופ */
+}
+
+.recipe-sections {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.line {
+  border-left: 2px dotted #2E308E;
+  height: auto;
+  align-self: stretch;
+  margin: 0 auto;
+}
+
+.recipe-section.ingredients,
+.recipe-section.instructions {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+/* כותרות משנה */
+.recipe-section h3 {
+  display: flex;
+  margin-top: 1.5rem;
+  color: #72b34a;
+  font-size: 1.6rem;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  text-align: right;
+  border-right: 5px solid #8a1f5c;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* רשימות */
+#recipe-ingredients,
+#recipe-instructions {
+  margin: 1rem 0 2rem;
+  padding-right: 1.8rem;
+  list-style: none;
+}
+
+#recipe-ingredients li,
+#recipe-instructions li {
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  position: relative;
+}
+
+/* עיצוב למרכיבים */
+#recipe-ingredients li::before {
+  content: "•";
+  color: #8a1f5c;
+  font-weight: bold;
+  position: absolute;
+  right: -1rem;
+}
+
+/* הוראות הכנה */
+#recipe-instructions li {
+  counter-increment: step-counter;
+  padding-right: 1.2rem;
+}
+
+#recipe-instructions li::before {
+  content: counter(step-counter) ". ";
+  color: #8a1f5c;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+}
+
+
+/* --- קישוטים מרחפים --- */
+.recipe-decor {
+  position: fixed;
+  left: 2%;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  z-index: 0;
+  opacity: 0.6;
+}
+/* ... (שאר סגנונות הקישוטים והאנימציה) ... */
+
+
+/* ============================================== */
+/* --- 4. מדיה קווריות - רספונסיביות למובייל --- */
+/* ============================================== */
+
+@media (max-width: 1024px) {
+  .recipe-container {
+      padding: 3rem 4rem; /* הקטנת ריווח בטאבלט */
+  }
+}
+
+@media (max-width: 768px) {
+  /* --- תמונה וכותרת: מעבר לפריסה אנכית --- */
+  .recipe-image-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .recipe-image-container img {
+      width: 100%;
+      max-width: 100%;
+      max-height: 250px;
+      margin-bottom: 0; /* ביטול רווחים מיותרים */
+  }
+
+  .title-description {
+      width: 100%;
+      padding: 20px 15px;
+  }
+
+  .recipe-image-container h1 {
+      font-size: 2.5rem;
+  }
+
+  #recipe-description {
+      font-size: 1.1rem;
+  }
+
+  /* --- מרכיבים והוראות: מעבר לעמודה אחת --- */
+  .recipe-container {
+      padding: 2rem 1rem; /* הקטנת ריווח פנימי במובייל */
+      margin: 1rem auto;
+  }
+
+  .recipe-sections {
+      flex-direction: column; /* הצבה אנכית */
+      gap: 1.5rem;
+  }
+  
+  .line {
+      display: none; /* הסתרת הקו המפריד האנכי */
+  }
+
+  .recipe-section.ingredients,
+  .recipe-section.instructions {
+      width: 100%;
+      flex: none; /* ביטול flex: 1 */
+      margin: 0;
+      padding: 0 10px;
+      box-sizing: border-box;
+  }
+  
+  /* יישור כותרות במובייל */
+  .recipe-section h3 {
+      font-size: 1.4rem;
+      margin-right: 0;
+  }
+  
+  /* התאמת רשימות במובייל */
+  #recipe-ingredients,
+  #recipe-instructions {
+      padding-right: 1.5rem;
+  }
+  
+  /* --- מידע עליון --- */
+  .top-info {
+      gap: 20px;
+  }
+
+  /* --- קישוטים מרחפים --- */
+  .recipe-decor {
+      display: none;
+  }
+}
+
+/* סגנונות הדפסה (ללא שינוי מהותי) */
+@media print {
+  /* ... */
+}

@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #FFFDF6;
+  direction: rtl;
+}
+
+
+
+main {
+  padding: 20px;
+}
+
+.categories {
+  margin-top: 20px;
+}
+
+.categories h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.category-list {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+
+}
+
+.category {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  max-width: 300px;
+  /* כרטיס קטן יותר */
+  margin-top: 40px;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.category img {
+  width: 100%;
+  height: 240px;
+  /* גובה אחיד לכל התמונות */
+  object-fit: cover;
+  /* ממלא את המסגרת, גם אם חותך מעט */
+}
+
+.category figcaption {
+  padding: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  background: #f9f9f9;
+}
+
+.category figcaption:hover {
+  background: #78BD50;
+  color: white;
+}
+
+
+

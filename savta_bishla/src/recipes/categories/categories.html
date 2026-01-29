@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קטגוריות מתכונים</title>
+    <link rel="icon" type="image/png" href="/images/לוגו.png">
+    <link rel="stylesheet" href="./categories.css">
+    <script type="module" src="./categories.js" defer></script>
+    <script type="module" src="../../menu.js" defer></script>
+    <script type="module" src="../../user/login.js" defer></script>
+    <script type="module" src="../../user/register.js" defer></script>
+    <link rel="stylesheet" href="../../menu.css">
+</head>
+
+<body>
+    <header>
+    </header>
+    <nav class="navbar">
+        <img class="header-image" src="/images/header.png" alt="ניווט">
+    </nav>
+  <nav class="blue-bar">
+    <div class="menu-wrap">
+
+      <div class="top-left-utils">
+        <div id="user-status-container" class="user-status-container">
+        </div>
+      </div>
+
+      <ul class="right">
+        <li class="toAdmin"><a href="/src/recipes/formRecipe/addRecipe/addRecipe.html">הוספת מתכון</a></li>
+        <li><a href="/src/tips/tips.html">טיפים</a></li>
+        <li><a href="/src/recipes/allRecipes/allRecipes.html">מתכונים</a></li>
+      </ul>
+
+      <ul class="left">
+        <li><a href="/src/user/favoritesRecipes/favorites.html" class="favorites-button">מחברת מתכונים</a></li>
+
+        <li><a href="#about">אודות</a></li>
+        <li><a href="/src" class="favorites-button">ראשי</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="modal">
+        <button class="close-modal" aria-label="סגור">
+            ✕
+        </button>
+        <div class="form-container">
+
+            <div class="connected">
+                <button class="activ openLogin">התחברות</button>
+                <button class="disActive openRegister">הרשמה</button>
+            </div>
+
+            <form class="toLogin">
+                <input id="email" type="email" placeholder="אימייל" required>
+                <input id="password" type="password" placeholder="סיסמה" required>
+                <button class="btnLogin" type="submit">התחברות</button>
+                <div class="errorMsgLogin"></div>
+            </form>
+
+            <form class="toRegister">
+                <input id="username" type="text" placeholder="שם מלא" required>
+                <input id="email" type="email" placeholder="אימייל" required>
+                <input id="password" type="password" placeholder="סיסמה" required>
+                <input id="password2" type="password" placeholder="אימות סיסמה" required>
+                <button class="btnRegister" type="submit">הרשמה</button>
+                <div class="errorMsgRegister"></div>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <section class="categories">
+            <h2>קטגוריות</h2>
+            <div id="category-list" class="category-list">
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

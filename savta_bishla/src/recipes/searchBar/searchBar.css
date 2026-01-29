@@ -1,0 +1,214 @@
+/* ----------------------------------------------------- */
+/* --- הגדרות כלליות של סרגל החיפוש --- */
+/* ----------------------------------------------------- */
+.search-header-container {
+  position: relative;
+  padding: 80px;
+  background: #97bb81;
+  border-bottom: 1px solid #69a846;
+  margin-top: 5.5%;
+  text-align: center; /* ממכרז את תיבת החיפוש */
+  /* הסרתי margin-top כדי לאפשר הטמעה חלקה יותר */
+}
+
+/* ----------------------------------------------------- */
+/* --- אזור הסינונים (במצב דסקטופ/טאבלט רחב) --- */
+/* ----------------------------------------------------- */
+.filters-container {
+  /* נשאר אבסולוטי רק למסכים גדולים */
+  position: absolute; 
+  left: 25px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  text-align: right;
+
+  padding-right: 4%;
+  border-right: 2px dashed rgba(255, 255, 255, 0.6);
+}
+
+.filters-container h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filter-controls {
+  display: flex;
+  flex-direction: column; /* הצגת הסינונים אחד מתחת לשני */
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* עיצוב אחיד לכפתורי הסינון ולתיבת הבחירה */
+.filter-btn, #difficulty-filter {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  width: 150px;
+  text-align: right;
+}
+
+.filter-btn:hover, #difficulty-filter:hover {
+  background-color: #f2f2f2;
+  border-color: #aaa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+/* ----------------------------------------------------- */
+/* --- אזור החיפוש (מרכז) --- */
+/* ----------------------------------------------------- */
+.search-container {
+  display: inline-flex;
+  justify-content: center;
+  position: relative; 
+  /* נוסף: כדי להבטיח שלא יגלוש במובייל */
+  max-width: 90%; 
+  margin: 0 auto; 
+}
+
+.search-container input[type="text"] {
+  width: 450px;
+  padding: 11px 18px;
+  border: 1px solid #ccc;
+  border-radius: 0 12px 12px 0;
+  border-left: none;
+  font-size: 16px;
+  order: 1;
+}
+
+.search-container input[type="text"]:focus {
+  outline: none;
+  border-color: #78BD50;
+}
+
+.search-container button#searchBtn {
+  padding: 11px 20px;
+  border: 1px solid #9E268A;
+  border-radius: 12px 0 0 12px;
+  background-color: #9E268A;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+  order: 2;
+  margin: 0;
+}
+
+.search-container button#searchBtn:hover {
+  background-color: #69a846;
+  border: 1px solid #78BD50;
+}
+
+/* ----------------------------------------------------- */
+/* --- תיבת תוצאות החיפוש --- */
+/* ----------------------------------------------------- */
+.search-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  z-index: 2000;
+  display: none;
+  text-align: right;
+  color: black;
+}
+
+.result-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.result-item:hover {
+  background: #f6f6f6;
+}
+
+
+/* ========================================================== */
+/* --- מדיה קווריות לרספונסיביות --- */
+/* ========================================================== */
+
+/* טאבלטים (עד 992px) - שינוי קריטי לסינונים */
+@media (max-width: 992px) {
+  .search-header-container {
+      padding: 40px 20px;
+  }
+  
+  /* 1. הסרת המיקום האבסולוטי של הסינונים */
+  .filters-container {
+      position: static; /* קריטי: החזרת האלמנט לזרימה הרגילה */
+      transform: none;
+      text-align: center;
+      border-right: none; /* הסרת הקו המפריד */
+      padding-right: 0;
+      margin-bottom: 25px; /* ריווח מהחיפוש */
+      width: 100%; /* שימוש ברוחב מלא */
+  }
+
+  /* 2. סידור הסינונים בשורה */
+  .filter-controls {
+      flex-direction: row; /* הצגה בשורה אחת */
+      justify-content: center;
+      flex-wrap: wrap; /* שבירת שורה אם אין מקום */
+      gap: 15px;
+  }
+
+  /* 3. שינוי רוחב פקדי הסינון */
+  .filter-btn, #difficulty-filter {
+      width: 130px; 
+      text-align: center;
+  }
+}
+
+/* מובייל (עד 600px) */
+@media (max-width: 600px) {
+  .search-header-container {
+      padding: 30px 10px;
+  }
+
+  /* 1. סידור הסינונים בעמודה אחת */
+  .filter-controls {
+      flex-direction: column; 
+      align-items: center; /* מרכוז */
+  }
+  .filter-btn, #difficulty-filter {
+      width: 90%;
+      max-width: 280px;
+  }
+
+  /* 2. שינוי פריסת החיפוש */
+  .search-container {
+      flex-direction: column; /* הצבת תיבת הטקסט והכפתור אחד מתחת לשני */
+      align-items: center;
+      width: 100%;
+      max-width: 350px; /* הגבלת רוחב כללי */
+  }
+  
+  /* 3. שינוי מראה תיבת הטקסט במובייל */
+  .search-container input[type="text"] {
+      width: 100%;
+      border-radius: 12px; /* החזרת הפינות המעוגלות שהוסרו קודם */
+      border-left: 1px solid #ccc; /* החזרת הגבול השמאלי שהוסר קודם */
+      margin-bottom: 10px;
+  }
+  
+  /* 4. שינוי מראה כפתור החיפוש במובייל */
+  .search-container button#searchBtn {
+      width: 100%;
+      border-radius: 12px;
+      order: 3; /* ודא שהוא מופיע מתחת לתיבת הטקסט */
+  }
+}
