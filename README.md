@@ -82,4 +82,4 @@ Follow these steps to run the project locally:
 ---
 
 ### 👩‍💻 Created By
-**Hadas Chomri & Sarah Levin**
+**Hadas Chomri & Sara Levin**
