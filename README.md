@@ -1,4 +1,4 @@
-# Savta Bishla (Grandma Cooked) 🍲
+# Savta Bishla 🍲
 
 **A Nostalgic Recipe Management & Sharing System.**
 
